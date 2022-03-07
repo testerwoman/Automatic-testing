@@ -1,0 +1,37 @@
+package D_14_Lila_Kovac_NS114QA4;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class Lila1 {
+
+    WebDriver driver;
+
+    @FindBy(xpath = "//*[@id=\"smestaj\"]")
+    WebElement smestaj;
+    @FindBy(xpath ="//*[@id=\"tip\"]")
+            WebElement tip;
+    @FindBy(xpath = "//*[@id=\"smestaj\"]/option[3]")
+            WebElement smestajOpcije;
+    @FindBy(xpath = "//*[@id=\"kvadratura\"]")
+            WebElement kvadratura;
+    @FindBy(xpath = "//body/app-root[1]/div[1]/div[1]/div[1]/form-dodaj-sobu[1]/form[1]/div[4]/button[1]")
+            WebElement submit;
+
+    public Lila1 (WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    public void lila() throws InterruptedException {
+        smestaj.click();
+        tip.sendKeys(Keys.PAGE_DOWN, "predsoblje");
+        Thread.sleep(3000);
+        smestajOpcije.click();
+        kvadratura.sendKeys("15");
+        submit.click();
+    }
+}

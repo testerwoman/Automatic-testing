@@ -1,0 +1,29 @@
+package Lila_Kovac;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Lila_Kovac {
+        public static void main(String[] args) throws InterruptedException {
+
+            WebDriverManager.chromedriver().setup();
+            WebDriver driver = new ChromeDriver();
+
+            driver.navigate().to("https://it-255-dz-06-andjela-bojic3972.vercel.app/#");
+            driver.manage().window().maximize();
+            driver.navigate().refresh();
+            driver.findElement(By.xpath("//*[@id=\"smestaj\"]")).click();
+            driver.wait(50000);
+            driver.findElement(By.xpath("//*[@id=\"tip\"]")).sendKeys("predsoblje");
+            driver.wait(50000);
+            driver.findElement(By.xpath("//*[@id=\"smestaj\"]/option[3]")).click();
+            driver.wait(50000);
+            driver.findElement(By.xpath("//*[@id=\"kvadratura\"]")).sendKeys("5");
+            driver.wait(50000);
+            driver.findElement(By.xpath("//body/app-root[1]/div[1]/div[1]/div[1]/form-dodaj-sobu[1]/form[1]/div[4]/button[1]")).click();
+            driver.wait(50000);
+        }
+    }
